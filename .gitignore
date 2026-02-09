@@ -43,3 +43,11 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+# Firebase configuration files - DO NOT COMMIT (contains sensitive API keys)
+google-services.json
+GoogleService-Info.plist
+firebase.json
+lib/firebase_options.dart
+.firebaserc
+firepit-log.txt
