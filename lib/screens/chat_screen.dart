@@ -1,3 +1,6 @@
+import 'package:chat_app_flutter_course/widgets/chat_messages.dart';
+import 'package:chat_app_flutter_course/widgets/new_messages.dart';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -8,11 +11,11 @@ class ChatScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Flutter Chat'),
+        title: const Text('FlutterChat'),
         actions: [
           IconButton(
-            onPressed: () async {
-              await FirebaseAuth.instance.signOut();
+            onPressed: () {
+              FirebaseAuth.instance.signOut();
             },
             icon: Icon(
               Icons.exit_to_app,
@@ -21,7 +24,12 @@ class ChatScreen extends StatelessWidget {
           ),
         ],
       ),
-      body: Center(child: Text('Logged in!')),
+      body: Column(
+        children: const [
+          Expanded(child: ChatMessages()),
+          NewMessage(),
+        ],
+      ),
     );
   }
 }
